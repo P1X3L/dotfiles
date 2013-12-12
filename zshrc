@@ -37,7 +37,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pix/bin
 
 # z
 . `brew --prefix`/etc/profile.d/z.sh
@@ -58,3 +58,5 @@ bindkey '^N' history-search-forward
 # Set auto cd
 setopt AUTO_CD
 
+# Canal +
+export CANAL_ENV=tnt

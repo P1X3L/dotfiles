@@ -62,6 +62,9 @@ set softtabstop=2
 
 " Nerdtree
 
+" NERDtree toggle
+map <C-n> :NERDTreeToggle<CR>
+
 " Don't open if it's a file
 function! StartUp()
   if 0 == argc()
