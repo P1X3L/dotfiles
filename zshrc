@@ -37,7 +37,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pix/bin
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pix/bin
 
 # z
 . `brew --prefix`/etc/profile.d/z.sh
@@ -60,3 +60,7 @@ setopt AUTO_CD
 
 # Canal +
 export CANAL_ENV=tnt
+
+# dircolors (coreutils)
+eval $(dircolors ~/.dir_colors)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"

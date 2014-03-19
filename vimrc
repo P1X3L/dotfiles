@@ -88,8 +88,13 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " Molokai
-let g:molokai_original = 1
-colorscheme molokai
+"let g:molokai_original = 1
+"colorscheme molokai
+
+" Solarized
+ syntax enable
+ set background=dark
+ colorscheme solarized
 
 " powerline
 set rtp+=/Users/pix/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
@@ -99,3 +104,5 @@ set guifont=Monaco\ for\ Powerline
 " creates the swapfiles in /tmp
 set dir=/tmp
 
+" Rainbow parentheses
+let g:rainbow_active = 1
