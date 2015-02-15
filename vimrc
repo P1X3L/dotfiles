@@ -41,10 +41,10 @@ set nocompatible
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
- 
+
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
- 
+
 syntax on
 set number
 set hlsearch
@@ -84,15 +84,11 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
- 
+
 " HTML indentation
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
-" Molokai
-"let g:molokai_original = 1
-"colorscheme molokai
 
 " Solarized
  syntax enable
@@ -100,7 +96,7 @@ let g:html_indent_style1 = "inc"
  colorscheme solarized
 
 " powerline
-set rtp+=/Users/pix/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 set guifont=Monaco\ for\ Powerline
 
@@ -116,9 +112,3 @@ let g:rainbow_active = 1
 " vim-instant-markdown
 let g:instant_markdown_slow = 1
 let g:instant_mardown_autostart = 0
-
-" change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
