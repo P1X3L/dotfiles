@@ -12,8 +12,8 @@ set cursorcolumn
 set hidden
 
 " Buffers
-noremap <S-tab> :bp!<cr>
-noremap <tab> :bn!<cr>
+noremap <S-tab> :bp!<CR>
+noremap <tab> :bn!<CR>
 
 " Remove scrollbars
 set guioptions-=r
@@ -112,3 +112,11 @@ let g:rainbow_active = 1
 " vim-instant-markdown
 let g:instant_markdown_slow = 1
 let g:instant_mardown_autostart = 0
+
+" vim-commentary
+
+" map ctrl+c for comments
+map <C-c> :Commentary<CR>
+
+" set gitcommit commentstring to '#'
+autocmd FileType gitcommit set commentstring=#%s
