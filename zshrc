@@ -92,3 +92,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 #
 # aliases
 source ~/.aliases
+
+# Disable title automatic renamer
+export DISABLE_AUTO_TITLE='true'
+
