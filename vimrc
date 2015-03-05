@@ -15,6 +15,10 @@ set hidden
 noremap <S-tab> :bp!<CR>
 noremap <tab> :bn!<CR>
 
+" Tabs
+noremap <C-Right> :tabnext<CR>
+noremap <C-Left> :tabprevious<CR>
+
 " Remove scrollbars
 set guioptions-=r
 set guioptions-=L
