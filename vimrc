@@ -119,8 +119,8 @@ let g:instant_mardown_autostart = 0
 
 " vim-commentary
 
-" map ctrl+c for comments
-map <C-c> :Commentary<CR>
-
 " set gitcommit commentstring to '#'
 autocmd FileType gitcommit set commentstring=#%s
+
+" reset timeout on esc key (ttimeoutlength) but keep timeout on '\' leader key (timeoutlen)
+set timeoutlen=1000 ttimeoutlen=0
