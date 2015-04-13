@@ -133,3 +133,11 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" use the silver searcher (AG) for ctrlp
+let g:ctrlp_user_command = 'ag %s -l -i -g ""'
+let g:ctrlp_use_caching = 0
+
+" git grep inside vim using AG
+set grepprg=ag\ --nogroup
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
