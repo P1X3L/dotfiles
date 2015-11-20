@@ -1,3 +1,6 @@
+" Pathogen
+execute pathogen#infect()
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -41,10 +44,6 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 " sachet's vimrc
 set nocompatible
-
-" Pathogen
-call pathogen#infect()
-call pathogen#helptags()
 
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
