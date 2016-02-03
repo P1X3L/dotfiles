@@ -1,10 +1,10 @@
 # dotfiles
 You will find my every day configuration using the following:
 
-iTerm2
-zsh with rubby russel's oh-my-zsh
-tmux
-vim (with pathogen)
+- iTerm2
+- zsh with [rubby russel's oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- tmux
+- vim (with pathogen)
 
 
 # Installation
