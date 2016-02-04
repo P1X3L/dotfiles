@@ -39,8 +39,13 @@ then
   sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
 
-# Hide dotfiles folder and create symlinks for your new configuration
-mv dotfiles .dotfiles &&
+# Hide dotfiles folder if it has not been made correctly from installation step 1
+if [[ -d "dotfiles" ]]
+then
+  mv dotfiles .dotfiles
+fi
+
+# Create symlinks for your new configuration
 ln -s .dotfiles/tmux.conf .tmux.conf &&
 ln -s .dotfiles/vimrc .vimrc &&
 ln -s .dotfiles/vim .vim &&
