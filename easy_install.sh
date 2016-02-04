@@ -21,12 +21,12 @@ do
   fi
 done
 
-# Check if you have brew installed and install vim, tmux, oh-my-zsh
-# python (for powerline), and reattach-to-user-namespace (for tmux)
+# Check if you have brew installed and install vim, tmux, python (for powerline),
+# reattach-to-user-namespace (for tmux), z and ag (the_silver_searcher for vim's ctrlp plugin)
 if type "brew" > /dev/null
 then
   brew update
-  brew install vim --override-system-vi tmux python reattach-to-user-namespace
+  brew install vim --override-system-vi tmux python reattach-to-user-namespace z ag
   pip install psutil
   pip install powerline-status
 else
