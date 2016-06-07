@@ -8,6 +8,7 @@ You will find my every day configuration using the following:
 
 This is a configuration for OSX users.
 
+I use solarized dark scheme for iTerm2. Get it here [http://ethanschoonover.com/solarized](http://ethanschoonover.com/solarized)
 # Installation
 
 1. Clone this repository using the --recursive flag to get all submodules `git clone git@github.com:P1X3L/dotfiles.git .dotfiles --recursive`

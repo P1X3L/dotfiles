@@ -96,3 +96,14 @@ source ~/.aliases
 # Disable title automatic renamer
 export DISABLE_AUTO_TITLE='true'
 
+# n-install
+export N_PREFIX="$HOME/bin/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# go configuration
+export GOPATH=~/.go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+# docker configuration
+eval "$(docker-machine env default)"
