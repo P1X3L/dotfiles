@@ -1,5 +1,22 @@
-" Pathogen
-execute pathogen#infect()
+call plug#begin('/Users/pix/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'ervandew/supertab'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script'
+Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-commentary'
+Plug 'bronson/vim-trailing-whitespace'
+
+" Initialize plugin system
+call plug#end()
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -17,6 +34,9 @@ set hidden
 " Buffers
 noremap <S-tab> :bp!<CR>
 noremap <tab> :bn!<CR>
+
+" Supertab avoid completion on line start
+let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
 
 " Tabs
 noremap <C-Right> :tabnext<CR>
@@ -98,6 +118,10 @@ let g:html_indent_style1 = "inc"
  set background=dark
  colorscheme solarized
 
+" no background on numbers
+highlight clear LineNr
+highlight clear SignColumn
+
 " powerline
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
@@ -115,8 +139,6 @@ let g:rainbow_active = 1
 " vim-instant-markdown
 let g:instant_markdown_slow = 1
 let g:instant_mardown_autostart = 0
-
-" vim-commentary
 
 " set gitcommit commentstring to '#'
 autocmd FileType gitcommit set commentstring=#%s
