@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/pix/dev/wttj/wttj-cms-shared/components'
+let g:netrw_dirhist_2='/Users/pix/dev/wttj/wttj-cms-shared/components/modals'
+let g:netrw_dirhist_3='/Users/pix/dev/wttj/wttj-cms-shared/components'
+let g:netrw_dirhist_4='/Users/pix/dev/wttj/wttj-cms-shared/components/metas'
+let g:netrw_dirhist_5='/Users/pix/dev/wttj/wttj-cms-shared/components'
+let g:netrw_dirhist_6='/Users/pix/dev/wttj/wttj-cms-shared/components/utils'
+let g:netrw_dirhist_7='/usr/local/etc/nginx/sites-available'
+let g:netrw_dirhist_8='/Users/pix/dev/wttj/wttj-cms-shared/components/contents'
+let g:netrw_dirhist_9='/Users/pix/dev/wttj/wttj-cms-shared/components/utils'

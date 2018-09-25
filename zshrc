@@ -61,10 +61,6 @@ source $ZSH/oh-my-zsh.sh
 #powerful mv
 autoload -U zmv
 
-# rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -102,5 +98,20 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
-# n-install automated conf
-export N_PREFIX="$HOME/.n-install"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# pass config
+source /usr/local/share/zsh/site-functions
+export KEYID=0x1CDFAD1DE1BB799F
+export GNUPGHOME=/Users/pix/.gnupg
+
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# asdf config
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
