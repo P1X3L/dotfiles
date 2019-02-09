@@ -62,7 +62,7 @@ source $ZSH/oh-my-zsh.sh
 autoload -U zmv
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -92,11 +92,17 @@ source ~/.aliases
 # Disable title automatic renamer
 export DISABLE_AUTO_TITLE='true'
 
-# go configuration
+# go config
 export GOPATH=~/.go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
+
+# rust config
+export RUSTUP_HOME=~/.rustup
+export RUSTROOT=~/.asdf/installs/rust/1.29.0
+export CARGO_HOME=$RUSTROOT/bin
+export PATH=$PATH:$RUSTROOT/bin
 
 # pass config
 source /usr/local/share/zsh/site-functions
@@ -115,3 +121,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.g
 # asdf config
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.base16-manager/chriskempson/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"

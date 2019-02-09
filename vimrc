@@ -8,17 +8,22 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
-Plug 'mxw/vim-jsx', { 'for': 'javascript' }
+Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color', { 'for': 'javascript' }
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'chriskempson/base16-vim'
+
+" utf-8
+set encoding=utf-8
 
 " Initialize plugin system
 call plug#end()
@@ -98,18 +103,21 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-" Solarized
-set background=dark
-colorscheme solarized
+" colorscheme
+let base16colorspace=256
+source ~/.vim/colorscheme.vim
 
 " no background on numbers
-highlight clear LineNr
-highlight clear SignColumn
+" highlight clear LineNr
+" highlight clear SignColumn
+
+" italics configuration
+highlight Comment cterm=italic
+highlight htmlArg cterm=italic
 
 " powerline
-set rtp+=/Users/pix/.asdf/installs/python/3.7.0/lib/python3.7/site-packages/powerline/bindings/vim
+set rtp+=/usr/local/lib/python3.7/site-packages/powerline/bindings/vim
 set laststatus=2
-set guifont=Monaco\ for\ Powerline
 
 " creates the swapfiles in /tmp
 set dir=/tmp
@@ -120,13 +128,17 @@ autocmd FileType gitcommit set commentstring=#%s
 " reset timeout on esc key (ttimeoutlength) but keep timeout on '\' leader key (timeoutlen)
 set timeoutlen=1000 ttimeoutlen=0
 
-" Swap iTerm2 cursors in vim insert mode when using tmux
+" Swap cursors in vim insert mode when using tmux
 if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  let &t_SI.="\<Esc>[5 q"
+  let &t_EI.="\<Esc>[2 q"
 else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  let &t_SI.="\<Esc>[5 q"
+  let &t_EI.="\<Esc>[2 q"
 endif
 
 " syntax for flexbox and css3 properties
@@ -188,6 +200,14 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " ALE config
+
+" display errors
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['prettier']
 
+highlight ALEWarning ctermbg=16 ctermfg=15
+highlight ALEError ctermbg=1 ctermfg=15
+highlight ALEErrorSign ctermfg=1 ctermbg=1
+highlight ALEWarningSign ctermfg=16 ctermbg=16
