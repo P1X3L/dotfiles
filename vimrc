@@ -112,6 +112,8 @@ source ~/.vim/colorscheme.vim
 " highlight clear SignColumn
 
 " italics configuration
+set t_ZH=[3m
+set t_ZR=[23m
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
@@ -211,3 +213,8 @@ highlight ALEWarning ctermbg=16 ctermfg=15
 highlight ALEError ctermbg=1 ctermfg=15
 highlight ALEErrorSign ctermfg=1 ctermbg=1
 highlight ALEWarningSign ctermfg=16 ctermbg=16
+
+" Powerline / YCM error fix attempt
+" let g:powerline_pycmd="python3"
+let g:ycm_python_binary_path = 'python3'
+let g:ycm_autoclose_preview_window_after_completion = 1
