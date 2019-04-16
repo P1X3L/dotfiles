@@ -1,0 +1,59 @@
+# open this
+alias aliases="vim ~/.aliases"
+
+# shortcuts
+alias hosts="sudo vim /etc/hosts"
+
+# ssh
+alias sshconfig="vim ~/.ssh/config"
+
+# nginx
+alias nginx-conf="vim /usr/local/etc/nginx/nginx.conf"
+alias nginx-stop="sudo nginx -s stop"
+alias nginx-start="sudo nginx"
+alias nginx-restart="nginx-stop; nginx-start"
+alias sites-available="cd /etc/nginx/sites-available"
+alias sites-enabled="cd /etc/nginx/sites-enabled"
+
+# postgres
+alias postgres-start="/home/ubuntu/.asdf/installs/postgres/11.1/bin/pg_ctl -D /home/ubuntu/.asdf/installs/postgres/11.1/data -l logfile start"
+
+# mongodb
+alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
+
+# bundler
+alias be="bundle exec"
+
+# Grunt
+alias gd="grunt deploy"
+alias gr="grunt shell:stop && grunt shell:start"
+alias gdr="gd && grunt shell:start"
+
+# dotfiles
+alias tigrc="vim ~/.tigrc"
+alias vimrc="vim ~/.vimrc"
+alias nvimrc="vim ~/.config/nvim/init.vim"
+alias tmuxrc="vim ~/.tmux.conf"
+alias zshrc="vim ~/.zshrc"
+alias kittyrc="vim ~/.config/kitty/kitty.conf"
+
+# map prod deploy
+alias deploy-prod="be cap prod deploy -s branch=master"
+
+#powerful mv
+alias mmv="noglob zmv -W"
+
+# docker
+alias doc="docker-compose"
+
+# sidekiq
+alias sidekiq-start="be sidekiq -C config/sidekiq.yml"
+
+# reload camera
+alias reload-camera="sudo killall VDCAssistant"
+
+# failed commands
+alias gti="git"
+
+#tmux
+alias tmux="env TERM=xterm-256color-italic tmux -2"
