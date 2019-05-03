@@ -1,4 +1,4 @@
-call plug#begin('/Users/pix/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattn/emmet-vim'
@@ -16,7 +16,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'w0rp/ale'
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Valloric/YouCompleteMe'
@@ -46,8 +45,8 @@ set hidden
 " noremap <tab> :bn!<CR>
 
 " Tabs
-noremap <C-Right> :tabnext<CR>
-noremap <C-Left> :tabprevious<CR>
+noremap <C-l> :tabnext<CR>
+noremap <C-h> :tabprevious<CR>
 
 " Remove scrollbars
 set guioptions-=r
@@ -63,8 +62,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 " Yank text to the OS X clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
+" noremap <leader>y "*y
+" noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
@@ -82,13 +81,12 @@ set hlsearch
 set showmatch
 set autoindent
 set history=1000
-" set cursorline
 
-if has("unnamedplus")
-  set clipboard=unnamedplus
-elseif has("clipboard")
-  set clipboard=unnamed
-endif
+" if has("unnamedplus")
+"   set clipboard=unnamedplus
+" elseif has("clipboard")
+"   set clipboard=unnamed
+" endif
 
 set expandtab
 set shiftwidth=2
@@ -107,10 +105,6 @@ let g:html_indent_style1 = "inc"
 let base16colorspace=256
 source ~/.vim/colorscheme.vim
 
-" no background on numbers
-" highlight clear LineNr
-" highlight clear SignColumn
-
 " italics configuration
 set t_ZH=[3m
 set t_ZR=[23m
@@ -118,7 +112,7 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 " powerline
-set rtp+=/usr/local/lib/python3.7/site-packages/powerline/bindings/vim
+set rtp+=~/.local/lib/python3.6/site-packages/powerline/bindings/vim
 set laststatus=2
 
 " creates the swapfiles in /tmp
@@ -199,7 +193,7 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+ \ 'header':  ['fg', 'Comment'] }
 
 " ALE config
 

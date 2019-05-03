@@ -1,9 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/pix/Desktop'
-let g:netrw_dirhist_2='/usr/local/etc/nginx/sites-available'
-let g:netrw_dirhist_3='/Users/pix/dev/wttj/wk-careers'
-let g:netrw_dirhist_4='/Users/pix/dev/wttj/wk-careers/admin'
-let g:netrw_dirhist_5='/Users/pix/dev/wttj/wk-careers/admin/nginx'
-let g:netrw_dirhist_6='/usr/local/etc/nginx/sites-available'
-let g:netrw_dirhist_7='/Users/pix/dev/wttj/wk'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms/InputRadio'
+let g:netrw_dirhist_2='/home/ubuntu/workspace/wttj/welcome-ui'
+let g:netrw_dirhist_3='/home/ubuntu/workspace/wttj/welcome-ui/src'
+let g:netrw_dirhist_4='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms'
+let g:netrw_dirhist_5='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms/InputRadio'
+let g:netrw_dirhist_6='/home/ubuntu/workspace/wttj/wttj-dev'
