@@ -1,0 +1,111 @@
+[diff]
+  color = true
+[alias]
+  ; shortcuts
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  st = status
+  a = add
+  ci = commit
+  b = branch -vvv
+  br = branch
+  co = checkout
+  rso = remote show origin
+  cia = commit --reedit-message=HEAD
+  rbc = rebase --continue
+  mt = mergetool
+  fa = fetch --all
+  pr = pull --rebase
+  pa = pull --all
+  psu = "!git push -u origin $(git branch-name)"
+  pf = push --force-with-lease
+
+  ;delete remote branch
+  brd = push origin --delete ;(branch_name)
+
+  cpk = cherry-pick
+
+  d = diff
+  ds = diff --staged
+  wd = diff --word-diff
+
+  ; log aliases
+  lol = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  lg = log --ignore-space-change --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches=*
+  lgp = log -p --ignore-space-change --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches=*
+  lgs = log --name-only --stat --ignore-space-change --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --branches=*
+  mylog   = "!git log --author=\"`git config --get user.name`\""
+  mylg   = "!git lg --author=\"`git config --get user.name`\""
+  mylgs   = "!git lgs --author=\"`git config --get user.name`\""
+  mylgp   = "!git lgp --author=\"`git config --get user.name`\""
+
+  msg = commit --allow-empty -m
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  visual = !qgit4
+
+  undo = reset --soft HEAD^
+
+  ; all new commits after you fetched, with stats, but excluding merges
+  lc = log ORIG_HEAD.. --stat --no-merges
+
+  ; Simple diff wrappers
+  changes = diff --name-status -r
+  diffstat = diff --stat -r
+
+  ; Spelunking of the project's history
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+
+  ; list aliases
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
+
+  ; Editing/adding conflicted files
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+  ; git svn
+  spull = !git-svn fetch && git-svn rebase
+  spush = !git-svn dcommit
+
+  ; Make 'git ctags' work
+  ctags = !.git/hooks/ctags
+
+;[apply]
+  ;whitespace = nowarn
+[color]
+
+  branch = auto
+  diff = auto
+  status = auto
+  interactive = auto
+  ui = auto
+  pager = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = cyan
+[merge]
+  tool = meld
+[push]
+  default = tracking
+[user]
+  name = Paul-Xavier Ceccaldi
+  email = pix@wttj.co
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim -f
+  pager = less -c
+[init]
+  templatedir = ~/.git-templates
+[commit]
+  template = ~/.git-commit-template

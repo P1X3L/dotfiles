@@ -16,7 +16,7 @@ alias sites-available="cd /etc/nginx/sites-available"
 alias sites-enabled="cd /etc/nginx/sites-enabled"
 
 # postgres
-alias postgres-start="/home/ubuntu/.asdf/installs/postgres/11.1/bin/pg_ctl -D /home/ubuntu/.asdf/installs/postgres/11.1/data -l logfile start"
+alias postgres-start="~/.asdf/installs/postgres/11.1/bin/pg_ctl -D ~/.asdf/installs/postgres/11.1/data -l logfile start"
 
 # mongodb
 alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
@@ -36,6 +36,7 @@ alias nvimrc="vim ~/.config/nvim/init.vim"
 alias tmuxrc="vim ~/.tmux.conf"
 alias zshrc="vim ~/.zshrc"
 alias kittyrc="vim ~/.config/kitty/kitty.conf"
+alias fishrc="vim ~/.config/fish/config.fish"
 
 # map prod deploy
 alias deploy-prod="be cap prod deploy -s branch=master"
