@@ -1,9 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms/InputRadio'
 let g:netrw_dirhist_2='/home/ubuntu/workspace/wttj/welcome-ui'
 let g:netrw_dirhist_3='/home/ubuntu/workspace/wttj/welcome-ui/src'
 let g:netrw_dirhist_4='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms'
 let g:netrw_dirhist_5='/home/ubuntu/workspace/wttj/welcome-ui/src/atoms/InputRadio'
 let g:netrw_dirhist_6='/home/ubuntu/workspace/wttj/wttj-dev'
-let g:netrw_dirhist_7='/home/ubuntu/workspace/wttj/wk/.git'
+let g:netrw_dirhist_7='/home/ubuntu/workspace/wttj/wk-dashboard-react'
+let g:netrw_dirhist_8='/home/ubuntu/workspace/wttj/wk-dashboard-react/dist'
