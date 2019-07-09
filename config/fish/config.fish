@@ -18,3 +18,7 @@ powerline-config tmux setup
 
 #asdf
 source ~/.asdf/asdf.fish
+# Base16 Shell
+  if status --is-interactive
+    eval sh $HOME/.base16-manager/chriskempson/base16-shell/scripts/base16-oceanicnext.sh
+  end
