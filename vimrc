@@ -7,8 +7,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
+Plug 'jxnblk/vim-mdx-js'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color', { 'for': 'javascript' }
@@ -200,8 +200,7 @@ let g:fzf_colors =
 " display errors
 let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 let g:ale_linter_aliases = {'jsx': 'css'}
-let g:ale_fixers = {}
-let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'],  'javascript': ['prettier'] }
 
 highlight ALEWarning ctermbg=16 ctermfg=15
 highlight ALEError ctermbg=1 ctermfg=15
