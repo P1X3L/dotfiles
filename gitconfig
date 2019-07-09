@@ -106,6 +106,6 @@
   editor = vim -f
   pager = less -c
 [init]
-  templatedir = ~/.git-templates
+  templatedir = ~/.config/git/templates
 [commit]
-  template = ~/.git-commit-template
+  template = ~/.config/git/commit-template
