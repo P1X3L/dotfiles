@@ -1,4 +1,4 @@
-set -x LANG en_US.UTF-8
+set -gx LANG en_US.UTF-8
 
 #aliases
 source ~/.aliases
@@ -19,6 +19,14 @@ set -gx CONVENTIONAL_GITHUB_RELEASER_TOKEN 99e70207ca870b1c07787e14231d97b2e55d0
 
 # export PATH
 set -gx PATH ~/.local/bin $CARGO_HOME/bin $PATH
+
+# make specific things between macos and linux
+switch (uname)
+case Linux
+  set -gx POWERLINE_BINDINGS_PATH ~/.local/lib/python3.6/site-packages/powerline/bindings
+case Darwin
+  set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
+end
 
 #tmux
 powerline-config tmux setup

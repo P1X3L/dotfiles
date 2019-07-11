@@ -118,7 +118,7 @@ highlight Comment cterm=italic
 highlight htmlArg cterm=italic
 
 " powerline
-set rtp+=~/.local/lib/python3.6/site-packages/powerline/bindings/vim
+set rtp+=$POWERLINE_BINDINGS_PATH/vim
 set laststatus=2
 
 " creates the swapfiles in /tmp

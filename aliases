@@ -24,11 +24,6 @@ alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
 # bundler
 alias be="bundle exec"
 
-# Grunt
-alias gd="grunt deploy"
-alias gr="grunt shell:stop && grunt shell:start"
-alias gdr="gd && grunt shell:start"
-
 # dotfiles
 alias tigrc="vim ~/.tigrc"
 alias vimrc="vim ~/.vimrc"
@@ -40,9 +35,6 @@ alias fishrc="vim ~/.config/fish/config.fish"
 
 # map prod deploy
 alias deploy-prod="be cap prod deploy -s branch=master"
-
-#powerful mv
-alias mmv="noglob zmv -W"
 
 # docker
 alias doc="docker-compose"
