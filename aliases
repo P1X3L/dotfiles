@@ -16,7 +16,7 @@ alias sites-available="cd /etc/nginx/sites-available"
 alias sites-enabled="cd /etc/nginx/sites-enabled"
 
 # postgres
-alias postgres-start="~/.asdf/installs/postgres/11.1/bin/pg_ctl -D ~/.asdf/installs/postgres/11.1/data -l logfile start"
+alias postgres-start="pg_ctl -D ~/.asdf/installs/postgres/11.1/data -l logfile start"
 
 # mongodb
 alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
