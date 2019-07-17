@@ -24,12 +24,13 @@ set -gx PATH ~/.local/bin $CARGO_HOME/bin $PATH
 switch (uname)
 case Linux
   set -gx POWERLINE_BINDINGS_PATH ~/.local/lib/python3.6/site-packages/powerline/bindings
+
+  #tmux
+  powerline-config tmux setup
+
 case Darwin
   set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
 end
-
-#tmux
-powerline-config tmux setup
 
 #asdf
 source ~/.asdf/asdf.fish
