@@ -25,12 +25,12 @@ switch (uname)
 case Linux
   set -gx POWERLINE_BINDINGS_PATH ~/.local/lib/python3.6/site-packages/powerline/bindings
 
+  #asdf
+  source ~/.asdf/asdf.fish
+
   #tmux
   powerline-config tmux setup
 
 case Darwin
   set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
 end
-
-#asdf
-source ~/.asdf/asdf.fish

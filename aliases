@@ -4,6 +4,9 @@ alias aliases="vim ~/.aliases"
 # shortcuts
 alias hosts="sudo vim /etc/hosts"
 
+# gopass & pass
+alias pass="gopass"
+
 # ssh
 alias sshconfig="vim ~/.ssh/config"
 
