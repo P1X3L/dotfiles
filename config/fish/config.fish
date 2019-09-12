@@ -28,9 +28,6 @@ case Linux
   #asdf
   source ~/.asdf/asdf.fish
 
-  #tmux
-  powerline-config tmux setup
-
 case Darwin
   set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
 end

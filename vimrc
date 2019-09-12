@@ -131,6 +131,18 @@ autocmd FileType gitcommit set commentstring=#%s
 " reset timeout on esc key (ttimeoutlength) but keep timeout on '\' leader key (timeoutlen)
 set timeoutlen=1000 ttimeoutlen=0
 
+" change cursor color
+if &term =~ "xterm\\|rxvt"
+  " use an green cursor in insert mode
+  let &t_SI = "\<Esc>]12;green\x7"
+  " use a green cursor otherwise
+  let &t_EI = "\<Esc>]12;green\x7"
+  silent !echo -ne "\033]12;green\007"
+  " reset cursor when vim exits
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+  " use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
+endif
+
 " Swap cursors in vim insert mode when using tmux
 if exists('$TMUX')
   " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
