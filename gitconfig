@@ -22,6 +22,9 @@
   ;delete remote branch
   brd = push origin --delete ;(branch_name)
 
+  ;get all gone branches (after git remote prune origin)
+  gone-branches = "!git br -vv | grep gone | awk '{print $1}'"
+
   cpk = cherry-pick
 
   d = diff
