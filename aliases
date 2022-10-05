@@ -1,11 +1,21 @@
+# work
+alias work="fish ~/.work.fish"
+
+# start / stop ec2 instance
+alias start-pix="awless start instance ids=i-043191a6141a73740 -f"
+alias done="awless stop instance ids=i-043191a6141a73740 -f"
+
 # open this
 alias aliases="vim ~/.aliases"
 
 # shortcuts
 alias hosts="sudo vim /etc/hosts"
 
+# put external ip in pastebin
+alias ip="curl -L https://ipinfo.io/ip | pbcopy"
+
 # gopass & pass
-alias pass="gopass"
+# alias pass="gopass"
 
 # ssh
 alias sshconfig="vim ~/.ssh/config"
