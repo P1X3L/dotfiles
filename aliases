@@ -18,8 +18,13 @@ alias nginx-restart="nginx-stop; nginx-start"
 alias sites-available="cd /etc/nginx/sites-available"
 alias sites-enabled="cd /etc/nginx/sites-enabled"
 
+# rabbitmq
+alias rabbit-start="rabbitmq-server -detached"
+alias rabbit-stop="rabbitmqctl stop"
+
 # postgres
-alias postgres-start="pg_ctl -D ~/.asdf/installs/postgres/11.1/data -l logfile start"
+alias postgres-start="pg_ctl start"
+alias postgres-stop="pg_ctl stop"
 
 # mongodb
 alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
@@ -30,7 +35,7 @@ alias be="bundle exec"
 # dotfiles
 alias tigrc="vim ~/.tigrc"
 alias vimrc="vim ~/.vimrc"
-alias nvimrc="vim ~/.config/nvim/init.vim"
+alias nvimrc="nvim ~/.config/nvim/init.vim"
 alias tmuxrc="vim ~/.tmux.conf"
 alias zshrc="vim ~/.zshrc"
 alias kittyrc="vim ~/.config/kitty/kitty.conf"
@@ -48,8 +53,14 @@ alias sidekiq-start="be sidekiq -C config/sidekiq.yml"
 # reload camera
 alias reload-camera="sudo killall VDCAssistant"
 
+# yarn
+alias ywr="yarn workspaces run"
+
 # failed commands
 alias gti="git"
 
+# kubectl config
+alias kuberc="vim ~/.kube/config"
+
 #tmux
-alias tmux="env TERM=xterm-256color-italic tmux -2"
+# alias tmux="env TERM=xterm-256color-italic tmux -2"

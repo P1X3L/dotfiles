@@ -12,25 +12,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-cucumber'
 Plug 'airblade/vim-gitgutter'
-Plug 'pangloss/vim-javascript'
-Plug 'jxnblk/vim-mdx-js'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mxw/vim-jsx'
-Plug 'stephpy/vim-yaml'
 Plug 'ap/vim-css-color', { 'for': 'javascript' }
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'w0rp/ale'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'Valloric/YouCompleteMe'
-Plug 'chriskempson/base16-vim'
-
-" utf-8
-set encoding=utf-8
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dracula/vim', { 'as': 'dracula' } " utf-8 set encoding=utf-8
 
 " Initialize plugin system
 call plug#end()
@@ -67,7 +57,8 @@ nnoremap R gq}
 set list
 
 " Define characters for 'tabs' and 'end of line'
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬
+set nolist
 
 " Yank text to the OS X clipboard
 " noremap <leader>y "*y
@@ -82,8 +73,9 @@ set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
 
 if !exists("g:syntax_on")
-  syntax enable
+ syntax enable
 endif
+
 set number
 set hlsearch
 set showmatch
@@ -110,14 +102,16 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 " colorscheme
-let base16colorspace=256
-source ~/.vim/colorscheme.vim
+set background=dark
+colorscheme dracula
 
 " italics configuration
 set t_ZH=[3m
 set t_ZR=[23m
-highlight Comment cterm=italic
+highlight Comment cterm=italic ctermfg=8
 highlight htmlArg cterm=italic
+highlight typescriptVariableDeclaration ctermfg=4
+highlight typescriptDOMDocMethod ctermfg=2
 
 " powerline
 set rtp+=$POWERLINE_BINDINGS_PATH/vim
@@ -150,25 +144,42 @@ if exists('$TMUX')
   " let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   let &t_SI.="\<Esc>[5 q"
   let &t_EI.="\<Esc>[2 q"
+  highlight Normal ctermbg=none
+
 else
   " let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   " let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   let &t_SI.="\<Esc>[5 q"
   let &t_EI.="\<Esc>[2 q"
+  set termguicolors
 endif
 
 " syntax for flexbox and css3 properties
-au BufRead,BufNewFile *.sass set filetype=scss.css
+au BufRead,BufNewFile *.scss set filetype=scss.css
 
 " force the old regex engine on any vim version > 7.3.969
-set re=1
+set re=0
 
 " fzf options
 
 nmap <Leader>b :Buffers<CR>
-nmap <c-p> :GFiles<CR>
+nmap <c-p> :FZF<CR>
 nmap <Leader>t :Tags<CR>
 nmap <Leader>c :Commits<CR>
+
+" alternative to alt-a to select-all
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
+" Global line completion (not just open buffers. ripgrep required.)
+inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+  \ 'prefix': '^.*$',
+  \ 'source': 'rg -n ^ --color always',
+  \ 'options': '--ansi --delimiter : --nth 3..',
+  \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+
+" Path completion with custom source command
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " --column: Show column number
 " --line-number: Show line number
@@ -185,49 +196,8 @@ command! -bang -nargs=* Find
   \ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1,
   \ <bang>0)
 
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+" coc config
 
-" Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
-" Replace the default dictionary completion with fzf-based fuzzy completion
-inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
-
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
- \ 'header':  ['fg', 'Comment'] }
-
-" ALE config
-
-" display errors
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-let g:ale_linter_aliases = {'jsx': 'css'}
-let g:ale_fixers = { '*': ['remove_trailing_lines', 'trim_whitespace'],  'javascript': ['prettier'] }
-
-highlight ALEWarning ctermbg=16 ctermfg=15
-highlight ALEError ctermbg=1 ctermfg=15
-highlight ALEErrorSign ctermfg=1 ctermbg=1
-highlight ALEWarningSign ctermfg=16 ctermbg=16
-
-" Powerline / YCM error fix attempt
-" let g:powerline_pycmd="python3"
-let g:ycm_python_binary_path = 'python3'
-let g:ycm_autoclose_preview_window_after_completion = 1
+" use tab to select completion proposal
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

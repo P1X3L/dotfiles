@@ -23,7 +23,7 @@ set -gx PATH ~/.local/bin $CARGO_HOME/bin $PATH
 # make specific things between macos and linux
 switch (uname)
 case Linux
-  set -gx POWERLINE_BINDINGS_PATH ~/.local/lib/python3.6/site-packages/powerline/bindings
+  set -gx POWERLINE_BINDINGS_PATH /home/ubuntu/.local/lib/python3.8/site-packages/powerline/bindings
 
   #asdf
   source ~/.asdf/asdf.fish
@@ -31,3 +31,7 @@ case Linux
 case Darwin
   set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
 end
+
+# Generated for envman. Do not edit.
+test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+
