@@ -1,9 +1,15 @@
+# k8s login preprod
+
+alias k8s-login-preprod="argocd login argo.preprod.wttj.team --sso --config ~/.argocd/config --skip-test-tls --grpc-web"
+alias k8s-login-production="argocd login argo.production.wttj.team --sso --config ~/.argocd/config --skip-test-tls --grpc-web"
+alias k8s-login="k8s-login-preprod && k8s-login-production"
+
 # work
 alias work="fish ~/.work.fish"
 
 # start / stop ec2 instance
-alias start-pix="awless start instance ids=i-043191a6141a73740 -f"
-alias done="awless stop instance ids=i-043191a6141a73740 -f"
+alias start-pix="aws ec2 start-instances --instance-ids i-043191a6141a73740"
+alias done="aws ec2 stop-instances --instance-ids i-043191a6141a73740"
 
 # open this
 alias aliases="vim ~/.aliases"
