@@ -12,10 +12,10 @@ alias start-pix="aws ec2 start-instances --instance-ids i-043191a6141a73740"
 alias done="aws ec2 stop-instances --instance-ids i-043191a6141a73740"
 
 # open this
-alias aliases="vim ~/.aliases"
+alias aliases="nvim ~/.aliases"
 
 # shortcuts
-alias hosts="sudo vim /etc/hosts"
+alias hosts="sudo nvim /etc/hosts"
 
 # put external ip in pastebin
 alias ip="curl -L https://ipinfo.io/ip | pbcopy"
@@ -24,23 +24,23 @@ alias ip="curl -L https://ipinfo.io/ip | pbcopy"
 # alias pass="gopass"
 
 # ssh
-alias sshconfig="vim ~/.ssh/config"
+alias sshconfig="nvim ~/.ssh/config"
 
 # nginx
-alias nginx-conf="vim /usr/local/etc/nginx/nginx.conf"
-alias nginx-stop="sudo nginx -s stop"
-alias nginx-start="sudo nginx"
-alias nginx-restart="nginx-stop; nginx-start"
-alias sites-available="cd /etc/nginx/sites-available"
-alias sites-enabled="cd /etc/nginx/sites-enabled"
+alias nginx-conf="nvim /opt/homebrew/etc/nginx/nginx.conf"
+alias nginx-stop="sudo brew services stop denji/nginx/nginx-full"
+alias nginx-start="sudo brew services start denji/nginx/nginx-full"
+alias nginx-restart="sudo brew services restart denji/nginx/nginx-full"
+alias sites-available="cd /opt/homebrew/etc/nginx/sites-available"
+alias sites-enabled="cd /opt/homebrew/etc/nginx/sites-enabled"
 
 # rabbitmq
 alias rabbit-start="rabbitmq-server -detached"
 alias rabbit-stop="rabbitmqctl stop"
 
 # postgres
-alias postgres-start="pg_ctl start"
-alias postgres-stop="pg_ctl stop"
+alias postgres-start="~/.asdf/installs/postgres/15.3/bin/pg_ctl -D ~/.asdf/installs/postgres/15.3/data -l logfile start"
+alias postgres-stop="~/.asdf/installs/postgres/15.3/bin/pg_ctl -D ~/.asdf/installs/postgres/15.3/data -l logfile stop"
 
 # mongodb
 alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
@@ -49,13 +49,13 @@ alias mongodb-start="mongod --config /usr/local/etc/mongod.conf"
 alias be="bundle exec"
 
 # dotfiles
-alias tigrc="vim ~/.tigrc"
-alias vimrc="vim ~/.vimrc"
+alias tigrc="nvim ~/.tigrc"
+alias vimrc="nvim ~/.vimrc"
 alias nvimrc="nvim ~/.config/nvim/init.vim"
-alias tmuxrc="vim ~/.tmux.conf"
-alias zshrc="vim ~/.zshrc"
-alias kittyrc="vim ~/.config/kitty/kitty.conf"
-alias fishrc="vim ~/.config/fish/config.fish"
+alias tmuxrc="nvim ~/.tmux.conf"
+alias zshrc="nvim ~/.zshrc"
+alias kittyrc="nvim ~/.config/kitty/kitty.conf"
+alias fishrc="nvim ~/.config/fish/config.fish"
 
 # map prod deploy
 alias deploy-prod="be cap prod deploy -s branch=master"
@@ -76,7 +76,7 @@ alias ywr="yarn workspaces run"
 alias gti="git"
 
 # kubectl config
-alias kuberc="vim ~/.kube/config"
+alias kuberc="nvim ~/.kube/config"
 
 #tmux
 # alias tmux="env TERM=xterm-256color-italic tmux -2"

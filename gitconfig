@@ -112,3 +112,5 @@
   templatedir = ~/.config/git/templates
 [commit]
   template = ~/.config/git/commit-template
+[rerere]
+	enabled = true
