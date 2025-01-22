@@ -15,6 +15,7 @@
   mt = mergetool
   fa = fetch --all
   pr = pull --rebase
+  pra = pull --rebase --autostash
   pa = pull --all
   psu = "!git push -u origin $(git branch-name)"
   pf = push --force-with-lease

@@ -16,6 +16,6 @@ lspconfig.setup {
     "eslint",
     "elixirls",
     "lua_ls",
-    "tsserver",
+    "ts_ls",
   },
 }
