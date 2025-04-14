@@ -15,7 +15,6 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/nvim-cmp' -- Completion
   use 'neovim/nvim-lspconfig' -- LSP
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more
   use 'lewis6991/gitsigns.nvim' -- Git decorations for current buffers
   use 'dinhhuy258/git.nvim' -- Open github from neovim
   use 'nvimdev/lspsaga.nvim' -- LSP UIs
@@ -30,6 +29,8 @@ packer.startup(function(use)
   use 'nvim-treesitter/playground'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'github/copilot.vim'
+  use 'stevearc/conform.nvim'
   use {
     'numToStr/Comment.nvim',
     requires = {

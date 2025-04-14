@@ -1,9 +1,11 @@
-local status, lualine = pcall(require, 'lualine')
-if (not status) then return end
+local status, lualine = pcall(require, "lualine")
+if not status then
+	return
+end
 
-lualine.setup {
-  options = {
-    icons_enabled = true,
-    theme = 'dracula'
-  }
-}
+lualine.setup({
+	options = {
+		icons_enabled = true,
+		theme = "dracula",
+	},
+})
