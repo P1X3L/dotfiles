@@ -1,45 +1,54 @@
-local status, packer = pcall(require, 'packer')
-if (not status) then
-  print("Packer is not installed")
-  return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd [[packadd packer.nvim]]
-
-packer.startup(function(use)
-  use 'wbthomason/packer.nvim' -- Package manager
-  use 'Mofiqul/dracula.nvim' -- Theme
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'L3MON4D3/LuaSnip'
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use 'neovim/nvim-lspconfig' -- LSP
-  use 'lewis6991/gitsigns.nvim' -- Git decorations for current buffers
-  use 'dinhhuy258/git.nvim' -- Open github from neovim
-  use 'nvimdev/lspsaga.nvim' -- LSP UIs
-  use 'MunifTanjim/prettier.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use 'windwp/nvim-ts-autotag'
-  use 'windwp/nvim-autopairs'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'nvim-lua/plenary.nvim' -- Telescope dependency
-  use 'nvim-telescope/telescope.nvim'
-  use 'kylechui/nvim-surround'
-  use 'nvim-treesitter/playground'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'github/copilot.vim'
-  use 'stevearc/conform.nvim'
-  use {
-    'numToStr/Comment.nvim',
-    requires = {
-      'JoosepAlviste/nvim-ts-context-commentstring'
-    }
-  }
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-
-end)
+require("lazy").setup({
+	"Mofiqul/dracula.nvim", -- Theme
+	"onsails/lspkind-nvim", -- vscode-like pictograms
+	"L3MON4D3/LuaSnip",
+	"hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in LSP
+	"hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
+	"hrsh7th/nvim-cmp", -- Completion
+	"neovim/nvim-lspconfig", -- LSP
+	"lewis6991/gitsigns.nvim", -- Git decorations for current buffers
+	"dinhhuy258/git.nvim", -- Open github from neovim
+	"nvimdev/lspsaga.nvim", -- LSP UIs
+	"MunifTanjim/prettier.nvim",
+	"nvim-lualine/lualine.nvim",
+	"windwp/nvim-ts-autotag",
+	"windwp/nvim-autopairs",
+	"kyazdani42/nvim-web-devicons",
+	"nvim-lua/plenary.nvim", -- Telescope dependency
+	"nvim-telescope/telescope.nvim",
+	"kylechui/nvim-surround",
+	"nvim-treesitter/playground",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	"github/copilot.vim",
+	"stevearc/conform.nvim",
+	{
+		"numToStr/Comment.nvim",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	},
+})

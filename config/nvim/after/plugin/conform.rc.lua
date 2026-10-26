@@ -5,6 +5,8 @@ end
 
 conform.setup({
 	formatters_by_ft = {
+		css = { "stylelint", "prettier" },
+		scss = { "stylelint", "prettier" },
 		lua = { "stylua" },
 		-- Conform will run the first available formatter
 		javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },

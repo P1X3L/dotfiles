@@ -39,6 +39,8 @@ alias rabbit-start="rabbitmq-server -detached"
 alias rabbit-stop="rabbitmqctl stop"
 
 # postgres
+alias postgres-17.5-start="~/.asdf/installs/postgres/17.5/bin/pg_ctl -D ~/.asdf/installs/postgres/17.5/data -o \"-p 5433\" -l logfile start"
+alias postgres-17.5-stop="~/.asdf/installs/postgres/17.5/bin/pg_ctl -D ~/.asdf/installs/postgres/17.5/data -l logfile stop"
 alias postgres-start="~/.asdf/installs/postgres/15.3/bin/pg_ctl -D ~/.asdf/installs/postgres/15.3/data -l logfile start"
 alias postgres-stop="~/.asdf/installs/postgres/15.3/bin/pg_ctl -D ~/.asdf/installs/postgres/15.3/data -l logfile stop"
 
