@@ -3,6 +3,9 @@ if not status then
 	return
 end
 
+vim.g.skip_ts_context_commentstring_module = true
+require("ts_context_commentstring").setup({ enable_autocmd = false })
+
 comment.setup({
 	pre_hook = function(ctx)
 		-- Only calculate commentstring for tsx filetypes

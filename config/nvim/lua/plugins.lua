@@ -33,7 +33,6 @@ require("lazy").setup({
 	"nvim-lua/plenary.nvim", -- Telescope dependency
 	"nvim-telescope/telescope.nvim",
 	"kylechui/nvim-surround",
-	"nvim-treesitter/playground",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -47,8 +46,8 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		build = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
-		end,
+		branch = "main",
+		lazy = false,
+		build = ":TSUpdate",
 	},
 })

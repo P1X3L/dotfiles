@@ -13,22 +13,22 @@ end
 
 mason.setup()
 
-lspconfig.setup({
+lspconfig.setup()
+
+tool_installer.setup({
 	ensure_installed = {
+		-- LSP servers (lspconfig names, resolved through the mason-lspconfig integration)
 		"stylelint_lsp",
 		"cssls",
 		"eslint",
 		"elixirls",
 		"lua_ls",
 		"ts_ls",
-	},
-})
-
-tool_installer.setup({
-	ensure_installed = {
+		-- Tools
 		"eslint_d",
 		"prettierd",
 		"stylua",
 		"stylelint",
+		"tree-sitter-cli",
 	},
 })
