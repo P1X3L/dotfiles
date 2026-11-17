@@ -1,37 +1,23 @@
-set -gx LANG en_US.UTF-8
+# The following lines were added by Docker Desktop to add commands to your PATH.
+export PATH="$PATH:/Users/pix/.docker/bin"
+# End of Docker Desktop section.
 
-#aliases
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
 source ~/.aliases
 
-# install fisher
-if not functions -q fisher
-    set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME ~/.config
-    curl https://git.io/fisher --create-dirs -sLo $XDG_CONFIG_HOME/fish/functions/fisher.fish
-    fish -c fisher
-end
+fish_add_path --prepend ~/.asdf/shims
 
-# rust config
-set -g CARGO_HOME $HOME/.asdf/installs/rust/1.34.0
-set -g RUSTUP_HOME $HOME/.rustup
-
-#github access
-set -gx CONVENTIONAL_GITHUB_RELEASER_TOKEN 99e70207ca870b1c07787e14231d97b2e55d0538
-
-# export PATH
-set -gx PATH ~/.local/bin $CARGO_HOME/bin $PATH
-
-# make specific things between macos and linux
-switch (uname)
-case Linux
-  set -gx POWERLINE_BINDINGS_PATH /home/ubuntu/.local/lib/python3.8/site-packages/powerline/bindings
-
-  #asdf
-  source ~/.asdf/asdf.fish
-
-case Darwin
-  set -gx POWERLINE_BINDINGS_PATH /usr/local/lib/python3.7/site-packages/powerline/bindings
-end
-
-# Generated for envman. Do not edit.
-test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
-
+set -gx POWERLINE_BINDINGS_PATH ~/.asdf/installs/python/3.11.4/lib/python3.11/site-packages/powerline/bindings
+set -gx SHELL /opt/homebrew/bin/fish
+set -gx GITHUB_PAT (security find-generic-password -a $USER -s github_pat -w 2>/dev/null)
+set -gx HOMEBREW_PREFIX /opt/homebrew
+set -gx PG_CONFIG ~/.asdf/installs/postgres/15.3/bin/pg_config
+# set -gx LDFLAGS -L~/.asdf/installs/postgres/15.3/lib
+# set -gx CPPFLAGS -I~/.asdf/installs/postgres/15.3/include
+set -gx PKG_CONFIG_PATH /opt/homebrew/bin/pkg-config:(brew --prefix icu4c)/lib/pkgconfig:(brew --prefix curl)/lib/pkgconfig:(brew --prefix zlib)/lib/pkgconfig
+set -gx GODEBUG asyncpreemptoff=1
+set -gx TERRAGRUNT_DOWNLOAD $HOME/.terraform.d/terragrunt_cache
+set -gx RABBITMQ_NODENAME rabbit@localhost
